@@ -23,6 +23,7 @@ class ArtistsController < ApplicationController
 
   def edit
     @artist = Artist.find(params[:id])
+    @song = @artist.songs.find(params[:id])
   end
 
   def update
@@ -47,6 +48,6 @@ class ArtistsController < ApplicationController
   private
 
   def artist_params
-    params.require(:artist).permit(:name)
+    params.require(:artist).permit(:name, :song_ids[])
   end
 end
